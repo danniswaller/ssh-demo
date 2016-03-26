@@ -3,6 +3,8 @@ package com.github.danniswaller.sshdemo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 import org.springframework.context.annotation.Bean;
 
@@ -16,7 +18,7 @@ import com.github.danniswaller.sshdemo.domain.User;
  * @author   <a href="mailto:betarvel@outlook.com">cafebabetarvel</a>
  * @version  03/24/2016 18:44
  */
-@SpringBootApplication public class Application {
+@SpringBootApplication public class Application extends SpringBootServletInitializer {
   //~ Methods ----------------------------------------------------------------------------------------------------------
 
   /**
@@ -31,21 +33,10 @@ import com.github.danniswaller.sshdemo.domain.User;
   //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
-   * demo.
-   *
-   * @param   userDao  UserDao
-   *
-   * @return  CommandLineRunner
+   * @see  org.springframework.boot.context.web.SpringBootServletInitializer#configure(org.springframework.boot.builder.SpringApplicationBuilder)
    */
-  @Bean public CommandLineRunner demo(final UserDao userDao) {
-    return new CommandLineRunner() {
-      @Override public void run(String... arg0) throws Exception {
-        userDao.save(new User("tom"));
-        userDao.save(new User("cat"));
-
-      }
-
-    };
+  @Override protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+    return builder.sources(Application.class);
 
   }
 
