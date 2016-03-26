@@ -77,7 +77,7 @@
             <![CDATA[jdbc:mysql://localhost/sshdemo?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]>
           </url>
           <username>root</username>
-          <password>Passw0rd</password>
+          <password>admin</password>
           <hibernateDialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernateDialect>
           <hibernateNamingStrategy>org.hibernate.cfg.DefaultNamingStrategy</hibernateNamingStrategy>
         </configuration>
@@ -101,7 +101,7 @@
             <![CDATA[jdbc:mysql://localhost/sshdemo?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]>
           </url>
           <username>root</username>
-          <password>Passw0rd</password>
+          <password>admin</password>
         </configuration>
         <executions>
           <execution>

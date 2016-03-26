@@ -1,93 +1,117 @@
 package com.github.danniswaller.sshdemo.domain;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Type;
 
-/**
- * TODO: DOCUMENT ME!
- *
- * @author   <a href="mailto:betarvel@outlook.com">cafebabetarvel</a>
- * @version  03/24/2016 18:49
- */
-@Entity public class User {
-  //~ Instance fields --------------------------------------------------------------------------------------------------
+@Entity
+public class User {
 
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  @Id private Long id;
-  private String   username;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Id
+	private Long id;// 唯一标识
+	private String username;// 用户名
+	private String password;// 密码
+	private String email;// 注册邮箱 唯一
+	private Integer type;// 客户类型 1为普通客户 2为管理员 3超级管理员
 
-  //~ Constructors -----------------------------------------------------------------------------------------------------
+	@Column(name = "status", nullable = false, columnDefinition = "char(1) default 'N'")
+	@Type(type = "yes_no")
 
-  /**
-   * Creates a new User object.
-   */
-  public User() { }
+	private boolean status = true;// 是否禁用
+	private String loginIp; // 登录IP
+	private Date loginTime;// 登录时间
+	private String lastLoginIp;// 上次登录IP
 
-  /**
-   * Creates a new User object.
-   *
-   * @param  name  String
-   */
-  public User(String name) {
-    this.username = name;
-  }
+	public User() {
+	}
 
-  /**
-   * Creates a new User object.
-   *
-   * @param  id    Long
-   * @param  name  String
-   */
-  public User(Long id, String name) {
-    this.id       = id;
-    this.username = name;
-  }
+	public Long getId() {
+		return id;
+	}
 
-  //~ Methods ----------------------------------------------------------------------------------------------------------
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-  /**
-   * getter method for id.
-   *
-   * @return  Long
-   */
-  public Long getId() {
-    return id;
-  }
+	public String getUsername() {
+		return username;
+	}
 
-  //~ ------------------------------------------------------------------------------------------------------------------
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-  /**
-   * getter method for username.
-   *
-   * @return  String
-   */
-  public String getUsername() {
-    return username;
-  }
+	public String getPassword() {
+		return password;
+	}
 
-  //~ ------------------------------------------------------------------------------------------------------------------
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-  /**
-   * setter method for id.
-   *
-   * @param  id  Long
-   */
-  public void setId(Long id) {
-    this.id = id;
-  }
+	public String getEmail() {
+		return email;
+	}
 
-  //~ ------------------------------------------------------------------------------------------------------------------
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-  /**
-   * setter method for username.
-   *
-   * @param  username  String
-   */
-  public void setUsername(String username) {
-    this.username = username;
-  }
+	public Integer getType() {
+		return type;
+	}
 
-} // end class User
+	public void setType(Integer type) {
+		this.type = type;
+	}
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
+	}
+
+	public String getLoginIp() {
+		return loginIp;
+	}
+
+	public void setLoginIp(String loginIp) {
+		this.loginIp = loginIp;
+	}
+
+	public Date getLoginTime() {
+		return loginTime;
+	}
+
+	public void setLoginTime(Date loginTime) {
+		this.loginTime = loginTime;
+	}
+
+	public String getLastLoginIp() {
+		return lastLoginIp;
+	}
+
+	public void setLastLoginIp(String lastLoginIp) {
+		this.lastLoginIp = lastLoginIp;
+	}
+
+	public Date getLastLoginTime() {
+		return lastLoginTime;
+	}
+
+	public void setLastLoginTime(Date lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
+	}
+
+	private Date lastLoginTime;// 上次登录时间
+
+}

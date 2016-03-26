@@ -1,0 +1,15 @@
+1. 编译
+1.1 不跳过测试
+ mvn clean install -Dmaven.test.skip=false = mvn clean install 
+1.2 跳过测试
+ mvn clean install -Dmaven.test.skip=true
+ 
+ 
+ 
+2. 运行
+2.1 如果需要重新建表和跑数据(会跑测试类)
+mvn clean install
+2.2 如果不需要(不会建表，不会跑数据，不会跑测试类)
+mvn clean install -Dmaven.test.skip=true
+2.3 运行项目
+mvn spring-boot:run -Dmaven.test.skip=true

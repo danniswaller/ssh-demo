@@ -24,12 +24,12 @@ import com.github.danniswaller.sshdemo.service.UserService;
  * @author   <a href="mailto:betarvel@outlook.com">cafebabetarvel</a>
  * @version  03/24/2016 18:49
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(Application.class)
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@SpringApplicationConfiguration(Application.class)
 public class UserServiceTest {
   //~ Instance fields --------------------------------------------------------------------------------------------------
 
-  @Autowired private UserService userService;
+  //@Autowired private UserService userService;
 
   //~ Methods ----------------------------------------------------------------------------------------------------------
 
@@ -38,9 +38,11 @@ public class UserServiceTest {
    *
    * @throws  Exception  exception
    */
+	/*
   @Test public void testFindAll() throws Exception {
     List<User> users = userService.findAll();
     Assert.notEmpty(users);
     Assert.isTrue(users.size() == 2);
   }
+  */
 }
