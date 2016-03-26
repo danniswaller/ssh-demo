@@ -1,4 +1,12 @@
-INSERT INTO `user` (`id`, `username`)
+INSERT INTO `user` (`username`)
 VALUES
-	(1, 'tom'),
-	(2, 'cat');
+	('tom1'),
+	('cat2'),
+	('cat3'),
+	('cat4'),
+	('cat5'),
+	('cat6'),
+	('cat7'),
+	('cat8'),
+	('cat9'),
+	('cat10');
