@@ -82,6 +82,7 @@ import com.github.danniswaller.sshdemo.domain.User;
    *
    * @param  user  User
    */
+
   public void save(User user) {
     userDao.save(user);
   }
