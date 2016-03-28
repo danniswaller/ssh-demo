@@ -9,7 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import org.hibernate.annotations.Type;
-
+import org.springframework.stereotype.Component;
+@Component
 @Entity
 public class User {
 

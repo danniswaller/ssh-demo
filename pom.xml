@@ -55,7 +55,7 @@
     </dependency>
   </dependencies>
 
-
+   
   <build>
     <plugins>
       <plugin>
@@ -77,7 +77,7 @@
             <![CDATA[jdbc:mysql://localhost/sshdemo?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]>
           </url>
           <username>root</username>
-          <password>Passw0rd</password>
+          <password>admin</password>
           <hibernateDialect>org.hibernate.dialect.MySQL5InnoDBDialect</hibernateDialect>
           <hibernateNamingStrategy>org.hibernate.cfg.DefaultNamingStrategy</hibernateNamingStrategy>
         </configuration>
@@ -101,10 +101,10 @@
             <![CDATA[jdbc:mysql://localhost/sshdemo?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8]]>
           </url>
           <username>root</username>
-          <password>Passw0rd</password>
+          <password>admin</password>
         </configuration>
-        <executions>
-          <execution>
+    <executions>
+            <execution>
             <id>drop-db-before-test-if-any</id>
             <phase>compile</phase>
             <goals>
@@ -136,4 +136,5 @@
       </plugin>
     </plugins>
   </build>
+ 
 </project>

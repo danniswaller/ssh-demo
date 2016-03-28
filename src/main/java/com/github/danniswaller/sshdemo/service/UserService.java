@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import org.springframework.util.StringUtils;
 
@@ -53,19 +54,7 @@ import com.github.danniswaller.sshdemo.domain.User;
     userDao.delete(userId);
   }
 
-  //~ ------------------------------------------------------------------------------------------------------------------
 
-  /**
-   * findAll.
-   *
-   * @return  List
-   */
-  public List<User> findAll() {
-    // SELECTI * FROM User where username like '%
-    return userDao.findAll();
-  }
-
-  //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
    * findById.
@@ -78,24 +67,15 @@ import com.github.danniswaller.sshdemo.domain.User;
     return userDao.getOne(id);
   }
 
-  //~ ------------------------------------------------------------------------------------------------------------------
+ 
 
-  /**
-   * list.
-   *
-   * @param   keyword  String
-   * @param   page     Pageable
-   *
-   * @return  Page
-   */
-  public Page<User> list(String keyword, Pageable page) {
-    return StringUtils.hasText(keyword) ? userDao.findByUsername(keyword, page) : userDao.findAll(page);
-  }
 
-  //~ ------------------------------------------------------------------------------------------------------------------
 
-  // ~ Methods
-  // ----------------------------------------------------------------------------------------------------------
+	public Page<User> findByUsername(String keyword, Pageable page) {
+	return	  StringUtils.hasText(keyword)?userDao.findByUsername(keyword, page):userDao.findAll(page);
+		    
+	}
+
 
   /**
    * save.
