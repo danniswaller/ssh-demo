@@ -36,7 +36,7 @@ public class UserController {
    *
    * @return Map
    */
-  @RequestMapping(name = "/users/save", method = RequestMethod.POST)
+  @RequestMapping(value = "/users/save", method = RequestMethod.POST)
   @ResponseBody
   public Boolean save(User user) {
     userService.save(user);
