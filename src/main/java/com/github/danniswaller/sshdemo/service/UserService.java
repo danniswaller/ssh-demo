@@ -8,11 +8,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import org.springframework.stereotype.Component;
-import org.springframework.util.StringUtils;
 
 import org.springframework.util.StringUtils;
 
 import com.github.danniswaller.sshdemo.dao.UserDao;
+import com.github.danniswaller.sshdemo.domain.Role;
 import com.github.danniswaller.sshdemo.domain.User;
 
 
@@ -54,7 +54,7 @@ import com.github.danniswaller.sshdemo.domain.User;
     userDao.delete(userId);
   }
 
-
+  //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
    * findById.
@@ -67,15 +67,35 @@ import com.github.danniswaller.sshdemo.domain.User;
     return userDao.getOne(id);
   }
 
- 
+  //~ ------------------------------------------------------------------------------------------------------------------
 
+  /**
+   * findByUsername.
+   *
+   * @param   keyword  String
+   * @param   page     Pageable
+   *
+   * @return  Page
+   */
+  public Page<User> findByUsername(String keyword, Pageable page) {
+    return StringUtils.hasText(keyword) ? userDao.findByUsername(keyword, page) : userDao.findAll(page);
 
+  }
 
-	public Page<User> findByUsername(String keyword, Pageable page) {
-	return	  StringUtils.hasText(keyword)?userDao.findByUsername(keyword, page):userDao.findAll(page);
-		    
-	}
+  //~ ------------------------------------------------------------------------------------------------------------------
 
+  /**
+   * findRolesByUser.
+   *
+   * @param   username  String
+   *
+   * @return  List
+   */
+  public List<Role> findRolesByUser(String username) {
+    return userDao.findRolesByUser(username);
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
    * save.

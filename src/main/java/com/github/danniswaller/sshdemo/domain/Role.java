@@ -1,13 +1,11 @@
-package com.github.danniswaller.sshdemo.service;
+package com.github.danniswaller.sshdemo.domain;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import org.springframework.stereotype.Component;
-
-import com.github.danniswaller.sshdemo.dao.ProductDao;
-import com.github.danniswaller.sshdemo.domain.Product;
 
 
 /**
@@ -16,67 +14,61 @@ import com.github.danniswaller.sshdemo.domain.Product;
  * @author   <a href="mailto:betarvel@outlook.com">cafebabetarvel</a>
  * @version  03/31/2016 19:16
  */
-@Component public class ProductService {
+@Entity public class Role {
   //~ Instance fields --------------------------------------------------------------------------------------------------
 
-  @Autowired private ProductDao dao;
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  @Id private Long id;
+  private String   name;
 
   //~ Constructors -----------------------------------------------------------------------------------------------------
 
   /**
-   * Creates a new ProductService object.
+   * Creates a new Role object.
    */
-  public ProductService() { }
+  public Role() { }
 
   //~ Methods ----------------------------------------------------------------------------------------------------------
 
   /**
-   * findAll.
+   * getter method for id.
    *
-   * @return  List
+   * @return  Long
    */
-  public List<Product> findAll() {
-    List<Product> products = dao.findAll();
-
-    return products;
+  public Long getId() {
+    return id;
   }
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
-   * findById.
+   * getter method for name.
    *
-   * @param   id  Long
-   *
-   * @return  Product
+   * @return  String
    */
-  public Product findById(Long id) {
-    Product p = dao.findOne(id);
-
-    return p;
+  public String getName() {
+    return name;
   }
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
-   * findByName.
+   * setter method for id.
    *
-   * @param   name  String
-   *
-   * @return  Product
+   * @param  id  Long
    */
-  public Product findByName(String name) {
-    return dao.findByName(name);
+  public void setId(Long id) {
+    this.id = id;
   }
 
   //~ ------------------------------------------------------------------------------------------------------------------
 
   /**
-   * save.
+   * setter method for name.
    *
-   * @param  p  Product
+   * @param  name  String
    */
-  public void save(Product p) {
-    dao.save(p);
+  public void setName(String name) {
+    this.name = name;
   }
-} // end class ProductService
+} // end class Role

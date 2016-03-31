@@ -44,16 +44,47 @@ import com.github.danniswaller.sshdemo.controller.exception.WebException;
   /**
    * toUserPage.
    *
-   * @param   model  ModelMap
+   * @param   model  Map
    *
    * @return  String
    */
   @RequestMapping("/home")
-  public String home(Map<String, Object> model) {
-    model.put("time", new Date());
-    model.put("message", "demo msg");
+  public String home(Map<String, String> model) {
+    model.put("currentPage", "home");
 
     return "home";
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * user.
+   *
+   * @param   model  Map
+   *
+   * @return  String
+   */
+  @RequestMapping("/role")
+  public String role(Map<String, String> model) {
+    model.put("currentPage", "role");
+
+    return "role";
+  }
+
+  //~ ------------------------------------------------------------------------------------------------------------------
+
+  /**
+   * user.
+   *
+   * @param   model  Map
+   *
+   * @return  String
+   */
+  @RequestMapping("/user")
+  public String user(Map<String, String> model) {
+    model.put("currentPage", "user");
+
+    return "user";
   }
 
 } // end class NaviController

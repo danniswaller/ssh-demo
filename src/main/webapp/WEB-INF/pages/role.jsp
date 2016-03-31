@@ -30,11 +30,7 @@
   <script type="text/javascript" src="${ctx}/bootstrap-3.3.6-dist/js/bootstrap.js"></script>
 </head>
 <body>
-
 <jsp:include page="common/header.jsp"/>
-
-<h1>home</h1>
-
 
 </body>
 </html>
